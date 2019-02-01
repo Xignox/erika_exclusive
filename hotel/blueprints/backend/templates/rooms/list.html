@@ -1,0 +1,21 @@
+<tbody>
+	<tr class="table-row">
+		<td>{{rooms.room_type}}</td>
+    <td>{{rooms.status}}</td>
+    <td>{{rooms.price}}</td>
+		
+    <td>
+      <div class="btn is-group">
+        <a href="rooms/{{rooms.id}}"><button type="submit" class="btn btn-primary btn-sm">
+              <i class="fa fa-eye">&nbsp;&nbsp;View</i>
+            </button></a>
+        <a href="rooms/{{rooms.id}}/edit"><button type="submit" class="btn btn-success btn-sm">
+              <i class="fa fa-edit">&nbsp;&nbsp;Edit</i>
+            </button></a>
+        <a href="rooms/{{rooms.id}}/delete"><button type="submit" class="btn btn-danger btn-sm">
+              <i class="fa fa-trash">&nbsp;&nbsp;Delete</i>
+            </button></a>
+          </div>
+    </td>
+  </tr>
+</tbody>

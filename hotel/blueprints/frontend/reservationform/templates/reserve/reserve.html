@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bus Tracker</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+</head>
+<body>
+
+
+<h1 class="title"> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp Reservation Form </h1>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+       <div class="container">
+          <center>      
+        <div class="card bg-info mb-12">
+          <div class="card-body">
+            <div class=container"><br>
+              <div class="row align-items-center justify-content-center">
+                <form  action="/schedule" method="post" role="form">
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                    <label for="origin">To</label>
+                    <select type="text" name="" class="form-control">
+                      <option selected>Select Origin</option>
+                      {% for rooms in rooms %}
+                        <option value="{{rooms.id}}">{{rooms.name}}</option>
+                      {% endfor%}
+                    </select>
+                  </div>
+                    <div class="form-group col-md-6">
+                      <label for="destination">From</label>
+                      <select type="text" name="destination" class="form-control ">
+                        <option selected>Select Destination</option>
+                        {% for rooms in rooms %}
+                          <option value="{{rooms.id}}">{{rooms.name}}</option>
+                        {% endfor%}
+                      </select>
+                     </div>
+                      <br>
+                      <br>
+                    <div class="form-group col-md-12">
+                      <label for="departured_at">Departure</label>
+                      <input class="form-control" type="date" name="departured_at" id="departured_at">
+                    </div>
+                    <div class="form-group col-md-12">
+                      <div class="quantity">
+                        <label for="quantity">Adult</label>
+                        <br>
+                           <button class="minus-btn" type="button" name="button">
+                              <i class="fa fa-minus"> </i>
+                             </button>
+                              <input type="text" name="name" value="0">
+                              <button class="plus-btn" type="button" name="button">
+                                <i class="fa fa-plus"> </i>
+                              </button>
+                      </div>
+                     </div>
+                     <div class="form-group col-md-12">
+                      <div class="quantity">
+                        <label for="quantity">Child(2-11 years)</label>
+                          <br>
+                             <button class="minus-btn" type="button" name="button">
+                              <i class="fa fa-minus"> </i>
+                             </button>
+                              <input type="text" name="name" value="0">
+                              <button class="plus-btn" type="button" name="button">
+                                <i class="fa fa-plus"> </i>
+                              </button>
+                      </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                      <div class="quantity">
+                        <label for="quantity">Senior</label>
+                          <br>
+                             <button class="minus-btn" type="button" name="button">
+                              <i class="fa fa-minus"> </i>
+                             </button>
+                              <input type="text" name="name" value="0">
+                              <button class="plus-btn" type="button" name="button">
+                                <i class="fa fa-plus"> </i>
+                              </button>
+                      </div>
+                    </div>
+                      <br>
+                      <div class="form-group col-md-12">
+                        <a href="/schedule"> Find Schedule
+                        </a> <br>
+                      </div>
+                </div>
+                </form>
+              </div>
+            </div>
+            <br>
+          </div>
+        </div>
+       </center>
+      </div>
+    </div>
+   </div>
+        <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+        <div id="menu1" class="tab-pane fade">
+          <h3>Menu 1</h3>
+          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <div id="menu2" class="tab-pane fade">
+          <h3>Menu 2</h3>
+          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+        </div>
+        <div id="menu3" class="tab-pane fade">
+          <h3>Menu 3</h3>
+          <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<tbody>
+  <tr class="table-row">
+    <td>{{users.firstname}} {{users.lastname}}</td>
+    <td>{{users.address}}</td>
+    <td>{{users.email}}</td>
+    <td>{{users.mobile}}</td>
+    <td>{{users.role}}</td>
+   <td>
+       <div class="btn is-group">
+        <a href="users/{{users.id}}"><button type="submit" class="btn btn-primary btn-sm">
+              <i class="fa fa-eye">&nbsp;&nbsp;View</i>
+            </button></a>
+        <a href="users/{{users.id}}/edit"><button type="submit" class="btn btn-success btn-sm">
+              <i class="fa fa-edit">&nbsp;&nbsp;Edit</i>
+            </button></a>
+        <a href="users/{{users.id}}/delete"><button type="submit" class="btn btn-danger btn-sm">
+              <i class="fa fa-trash">&nbsp;&nbsp;Delete</i>
+            </button></a>
+          </div>
+    </td>
+  </tr>
+</tbody>
+
+ 

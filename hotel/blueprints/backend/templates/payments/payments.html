@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+{% block body %}
+ 
+          <h4 class="head">Payments</h4>
+     
+        <div class="row">
+          <div class="col-md-6">
+            <a href="" class="btn btn-success btn-sm">
+              <i class="fa fa-plus-circle">&nbsp;&nbsp;Create</i>
+            </a>
+          </div>
+          <div class="col-md-6">
+            <form action="/users_search" method = POST>
+              <div class="input-group">
+                <input class="form-control" type="text" placeholder=" Type here...">
+                <button class="btn btn-info btn-sm" type="submit">
+                  <i class="fa fa-search">&nbsp;&nbsp;</i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <br>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Reserve_ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Mode of Payment</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for payments in payments %}
+              {% include 'payments/list.html' %}
+            {% endfor %}
+          </tbody>
+        </table>
+   
+  {% endblock %}

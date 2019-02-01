@@ -1,0 +1,72 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="column">
+  <div class="card bg-light mb-3">
+    <div class="card-header">
+      <h4>Edit Bus</h4>
+    </div>
+  </div>
+  <div class="card bg-light mb-3">
+    <div class="card-body">
+      <form method="POST" action="/busses/{{bus.id}}/edit">
+        <input type="hidden"  name="_method" value="PUT">
+        {{ form.csrf_token() }}
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="model">Model</label>
+            <input type="text" class="form-control" name="model" value="{{bus.model}}">
+            <ul class="errors">
+              {% for error in form.model.errors %}
+              <li>{{ error }}</li>
+              {% endfor %}
+            </ul>          
+          </div>
+          <div class="form-group col-md-6">
+              <label for="arrival">To:</label>
+              <input type="text" class="form-control" name="arrival" value="{{bus.arrival}}">
+                <ul class="errors">
+                  {% for error in form.arrival.errors %}
+                  <li>{{ error }}</li>
+                  {% endfor %}
+                </ul>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="departure">From:</label>
+              <input type="text" class="form-control" name="departure" value="{{bus.departure}}">
+            </div>
+          <div class="form-group col-md-6">
+            <label for="plate_number">Plate Number</label>
+            <input type="text" class="form-control" name="plate_number" value="{{bus.plate_number}}">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="type">Type</label>
+            <input type="text" class="form-control" name="type" value="{{bus.type}}">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="seats">Seats</label>
+            <input type="text" class="form-control" name="seats" value="{{bus.seats}}">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="registered_at">Registered</label>
+            <input class="form-control" type="datetime-local" name="registered_at" value="{{bus.registered_at}}">
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="image">Image</label>
+            <input type="file" class="form-control-file"  name="image">
+        </div>
+        <div class="btn-group">
+          <a href="/busses" class="btn btn-danger btn-sm">
+            <i class="fa fa-angle-double-left">&nbsp;&nbsp;Back</i>
+          </a>
+          <button type="submit" class="btn btn-primary btn-sm" value="submit">
+            <i class="fa fa-check-circle">&nbsp;&nbsp;Update</i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

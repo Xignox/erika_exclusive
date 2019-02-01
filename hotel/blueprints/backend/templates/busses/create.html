@@ -1,0 +1,96 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="column">
+  <div class="card bg-light mb-3">
+    <div class="card-header">
+      <h4>Create Bus</h4>
+    </div>
+  </div>
+  <div class="card bg-light mb-3">
+    <div class="card-body">
+      <form action="/busses/create" method="POST">
+        {{ form.csrf_token() }}
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="model">Model</label>
+            <input type="text" class="form-control" name="model">
+            <ul class="errors">
+              {% for error in form.model.errors %}
+              <span><li style="color:red;"> {{error}} </span>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="form-group col-md-6">
+          <label for="arrival">To:</label>
+          <input type="text" class="form-control" name="arrival" placeholder="Enter arrival">
+            <ul class="errors">
+              {% for error in form.arrival.errors %}
+              <span><li style="color:red;"> {{error}} </span>
+              {% endfor %}
+            </ul>
+          </div>
+            <div class="form-group col-md-6">
+              <label for="departure">From:</label>
+              <input type="text" class="form-control" name="departure" placeholder="Enter departure">
+            <ul class="errors">
+              {% for error in form.departure.errors %}
+              <span><li style="color:red;"> {{error}} </span>
+              {% endfor %}
+            </ul>              
+            </div>
+          <div class="form-group col-md-6">
+            <label for="plate_number">Plate Number</label>
+            <input type="text" class="form-control" name="plate_number">
+            <ul class="errors">
+              {% for error in form.plate_number.errors %}
+              <span><li style="color:red;"> {{error}} </span>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="type">Type</label>
+            <input type="text" class="form-control" name="type">
+            <ul class="errors">
+              {% for error in form.type.errors %}
+              <span><li style="color:red;"> {{error}} </span>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="seats">Seats</label>
+            <input type="text" class="form-control" name="seats">
+            <ul class="errors">
+              {% for error in form.seats.errors %}
+              <span><li style="color:red;"> {{error}} </span>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="registered_at">Registered</label>
+            <input class="form-control" type="datetime-local" name="registered_at">
+            <ul class="errors">
+              {% for error in form.registered_at.errors %}
+              <span><li style="color:red;"> {{error}} </span>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="image">Image</label>
+            <input type="file" class="form-control-file"  name="image">
+        </div>
+        <div class="btn-group">
+          <a href="/busses" class="btn btn-danger btn-sm">
+            <i class="fa fa-angle-double-left">&nbsp;&nbsp;Back</i>
+          </a>
+          <button type="submit" class="btn btn-primary btn-sm" value="submit">
+            <i class="fa fa-check-circle">&nbsp;&nbsp;Submit</i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

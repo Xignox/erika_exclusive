@@ -1,0 +1,19 @@
+<tbody>
+	<tr class="table-row">
+		<td>{{roles.name}}</td>
+		<td>{{roles.description}}</td>
+		<td>
+      <div class="btn is-group">
+          <a href="roles/{{roles.id}}"><button type="submit" class="btn btn-primary btn-sm">
+              <i class="fa fa-eye">&nbsp;&nbsp;View</i>
+            </button></a>
+            <a href="roles/{{roles.id}}/edit"><button type="submit" class="btn btn-success btn-sm">
+              <i class="fa fa-edit">&nbsp;&nbsp;Edit</i>
+            </button></a>
+            <a href="roles/{{roles.id}}/delete"><button type="submit" class="btn btn-danger btn-sm">
+              <i class="fa fa-trash">&nbsp;&nbsp;Delete</i>
+            </button></a>
+          </div>
+    </td>
+	</tr>
+</tbody>

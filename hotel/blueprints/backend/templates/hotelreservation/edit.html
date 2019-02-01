@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+{% block body %}
+  <div class="card bg-light mb-3">
+    <div class="card-header">
+      <h4>Edit Role</h4>
+    </div>
+    <div class="card-body bg-light mb-3">
+      <form action="/roles/{{roles.id}}/edit" method="POST">
+        <input type="hidden" name="_method" value="PUT">
+        {{ form.csrf_token() }}
+        <div class="fieldset">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" name="name" id="name" value="{{roles.name}}">
+              <ul class="errors">
+                {% for error in form.name.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+              </ul>            
+          </div>
+          <div class="fieldset">
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea name="description" class="form-control" id="" cols="30" rows="10">
+                {{roles.description}}
+              </textarea>
+            </div>  
+          </div>
+        </div>
+        <div class="btn-group">
+            <a href="/roles" class="btn btn-danger btn-sm">
+              <i class="fa fa-angle-double-left">&nbsp;&nbsp;Back</i>
+            </a>
+            <button type="submit" class="btn btn-primary btn-sm">
+              <i class="fa fa-check-circle">&nbsp;&nbsp;Update</i>
+            </button>
+          </div>
+      </form>
+    </div>
+  </div>
+  {% endblock %}

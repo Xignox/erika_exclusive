@@ -1,0 +1,95 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="card">
+  <div class="card bg-light mb-3">
+    <div class="card-header">
+      <h4>Edit Repair</h4>
+    </div>
+  </div>
+  <div class="card bg-light mb-3">
+    <div class="card-body">
+      <form method="POST" action="/repairs/{{repair.id}}/edit">
+        <input type="hidden"  name="_method" value="PUT">
+        {{ form.csrf_token() }}
+        <div class="fieldset">
+          <div class="form-group">
+            <label for="mechanic_id">Driver</label>
+            <select type="text" name="mechanic_id" class="form-control">
+              {% for users in users  %}
+              {% if users.id == repair.mechanic_id %} 
+              <option value={{users.id}}  selected="">{{users.firstname}}</option>
+              {% else %}
+              <option value="{{users.id}}">{{users.firstname}}</option>
+              {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        <div class="fieldset">
+          <div class="form-group">
+            <label for="bus_id">Driver</label>
+            <select type="text" name="bus_id" class="form-control">
+              {% for buss in buss  %}
+              {% if buss.id == repair.bus_id %} 
+              <option value={{buss.id}}  selected="">{{buss.plate_number}}</option>
+              {% else %}
+              <option value="{{buss.id}}">{{buss.plate_number}}</option>
+              {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+      <div class="fieldset">
+        <div class="from-group">
+          <label for="longitude">Longitude</label>
+          <input type="text" name="longitude" class="form-control" value="{{repair.longitude}}">
+        </div>
+      </div>
+      <div class="fieldset">
+        <div class="from-group">
+          <label for="latitude">Latitude</label>
+          <input type="text" name="latitude" class="form-control" value="{{repair.latitude}}">
+            <ul class="errors">
+              {% for error in form.latitude.errors %}
+              <li>{{ error }}</li>
+              {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="fieldset">
+        <div class="from-group">
+          <label for="description">Description</label>
+          <input type="text" name="description" class="form-control" value="{{repair.description}}">
+        </div>
+      </div>
+      <div class="fieldset">
+        <div class="from-group">
+          <label for="type">Type</label>
+          <input type="text" name="type" class="form-control" value="{{repair.type}}">
+        </div>
+      </div>
+      <div class="fieldset">
+        <div class="from-group">
+          <label for="status">Status</label>
+          <div class="radio">
+              <label><input type="radio" name="status" value="Pending" checked="">Pending</label>
+          </div>
+          <div class="radio">
+              <label><input type="radio" name="status" value="Reserved">Reserved</label>
+          </div>
+        </div>
+      </div>
+      <div class="btn-group">
+        <a href="/repairs" class="btn btn-danger btn-sm">
+          <i class="fa fa-angle-double-left">&nbsp;&nbsp;Back</i>
+        </a>
+        <button type="submit" class="btn btn-primary btn-sm">
+        <i class="fa fa-check-circle">&nbsp;&nbsp;Update</i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+  {% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+{% block body %}
+  <div class="card">
+    <div class="card-header">
+      <legend>Busses Details</legend>
+    </div>
+    <div class="card-body">
+      <dl class="col-md-4 sph-data">
+        <dt>Model</dt> 
+        <dd>{{ bus.model}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <dt>Plate Number</dt>
+        <dd>{{ bus.plate_number}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <dt>Route</dt>
+        <dd>{{ bus.arrival}} {{ bus.departure}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <dt>Seats</dt>
+        <dd>{{ bus.seats}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <dt>Registered</dt>
+        <dd>{{bus.registered_at}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <dt>Type</dt>
+        <dd>{{ bus.type}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <a href="/busses" class="btn btn-danger btn-sm">
+          <i class="fa fa-angle-double-left">&nbsp;&nbsp;Back</i>
+        </a>
+      </dl>
+    </div>
+  </div>
+{% endblock %}

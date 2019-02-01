@@ -1,0 +1,96 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="card">
+  <div class="card bg-light mb-3">
+    <div class="card-header">
+      <h4>Create Reservation</h4>
+    </div>
+  </div>
+  <div class="card-body bg-light mb-3">
+    <form action="/reservations/create" method="POST">
+      {{ form.csrf_token() }}
+      <div class="fieldset">
+        <div class="form-group">
+          <label for="schedule_id">Schedule</label>
+          <select type="datetime-local" name="schedule_id" class="form-control">
+            <option selected>Select schedules</option>
+            {% for schedule in schedules %}
+              <option value="{{schedule.id}}">{{schedule.departured_at}}</option>
+            {% endfor%}
+          </select>
+        </div>
+      </div>
+      <div class="fieldset">
+        <div class="form-group">
+          <label for="passenger_id">Passenger</label>
+          <select type="text" name="passenger_id" class="form-control">
+            <option selected>Select passenger</option>
+            {% for user in users %}
+              <option value="{{user.id}}">{{user.firstname}} {{user.lastname}}</option>
+            {% endfor%}
+          </select>
+        </div>
+      </div>
+      <div class="fieldset">
+        <div class="form-group">
+          <label for="route_id">Route</label>
+          <select type="text" name="route_id" class="form-control">
+            <option selected>Select route</option>
+            {% for bus in bus %}
+              <option value="{{bus.id}}">{{bus.arrival}} {{bus.departure}}</option>
+            {% endfor%}
+          </select>
+        </div>
+      </div>
+       
+      <div class="fieldset">
+        <div class="from-group">
+          <label for="quantity">Quantity</label>
+          <input type="text" name="quantity" class="form-control" placeholder="Enter quantity">
+            <ul class="errors">
+              {% for error in form.quantity.errors %}
+              <span><li style="color:red;"> {{error}} </span>
+              {% endfor %}
+            </ul>
+        </div>
+      </div>
+      <div class="fieldset">
+        <div class="from-group">
+          <label for="amount">Amount</label>
+          <input type="text" name="amount" class="form-control" placeholder="Enter amount">
+            <ul class="errors">
+              {% for error in form.amount.errors %}
+              <span><li style="color:red;"> {{error}} </span>
+              {% endfor %}
+            </ul>
+        </div>
+      </div>
+      <div class="fieldset">
+        <div class="from-group">
+          <label for="discount">Discount</label>
+          <input type="text" name="discount" class="form-control" placeholder="Enter discount">
+        </div>
+      </div>
+      <div class="fieldset">
+        <div class="from-group">
+          <label for="status">Status</label>
+          <div class="radio">
+              <label><input type="radio" name="status" value="Pending" checked="">Pending</label>
+          </div>
+          <div class="radio">
+              <label><input type="radio" name="status" value="Reserved">Reserved</label>
+          </div>
+        </div>
+      </div>
+      <div class="btn-group">
+        <a href="/reservations" class="btn btn-danger btn-sm">
+          <i class="fa fa-angle-double-left">&nbsp;&nbsp;Back</i>
+        </a>
+        <button type="submit" class="btn btn-primary btn-sm">
+        <i class="fa fa-check-circle">&nbsp;&nbsp;Submit</i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+  {% endblock %}

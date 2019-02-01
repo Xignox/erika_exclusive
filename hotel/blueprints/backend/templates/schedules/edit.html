@@ -1,0 +1,112 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="column">
+  <div class="card bg-light mb-3">
+    <div class="card-header">
+      <h4>Edit Schedule</h4>
+    </div>
+  </div>
+  <div class="card bg-light mb-3">
+    <div class="card-body">
+      <form action="/schedules/{{schedules.id}}/edit" method="POST">
+        <input type="hidden"  name="_method" value="PUT">
+        {{ form.csrf_token() }}
+		    <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="driver_id">Driver</label>
+            <select type="text" name="driver_id" class="form-control">
+              {% for users in users  %}
+              {% if users.id == schedules.driver_id %} 
+              <option value={{users.id}}  selected="">{{users.firstname}}</option>
+              {% else %}
+              <option value="{{users.id}}">{{users.firstname}}</option>
+              {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="conductor_id">Driver</label>
+            <select type="text" name="conductor_id" class="form-control">
+              {% for users in users  %}
+              {% if users.id == schedules.conductor_id %} 
+              <option value={{users.id}}  selected="">{{users.firstname}}</option>
+              {% else %}
+              <option value="{{users.id}}">{{users.firstname}}</option>
+              {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="bus_id">Plate Number</label>
+            <select type="text" name="bus_id" class="form-control">
+              {% for bus in bus  %}
+              {% if bus.id == schedules.bus_id %} 
+              <option value={{bus.id}}  selected="">{{bus.plate_number}}</option>
+              {% else %}
+              <option value="{{bus.id}}">{{bus.plate_number}}</option>
+              {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="departured_at">Departured</label>
+            <input class="form-control" type="datetime-local" name="departured_at" value="{{schedules.departured_at}}">
+              <ul class="errors">
+                {% for error in form.departured_at.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+              </ul>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="arrived_at">Arrived</label>
+            <input class="form-control" type="datetime-local" name="arrived_at" id="arrived_at">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="origin">Origin</label>
+            <select type="text" name="origin" class="form-control">
+              <option selected>-Select-</option>
+              <option > Cavite</option>
+              <option > Manila</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="destination">Destination</label>
+            <select type="text" name="destination" class="form-control">
+              <option selected>-Select-</option>
+              <option > Cavite</option>
+              <option > Manila</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="amount">Arrived</label>
+            <input class="form-control" type="text" name="amount" value="{{schedules.amount}}">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="duration">Duration</label>
+            <input class="form-control" type="text" name="duration" value="{{schedules.duration}}">
+          </div>
+            <div class="form-group col-md-6">
+              <label for="status">Status</label>
+                <select type="text" name="status" class="form-control">
+                  <option selected>Select</option>
+                  <option>On going</option>
+                  <option>Standby</option>
+                  <option>Cancelled</option>
+                </select>
+            </div>
+          </div>
+          <div class="btn-group">
+            <a href="/schedules" class="btn btn-danger btn-sm">
+              <i class="fa fa-angle-double-left">&nbsp;&nbsp;Back</i>
+            </a>
+            <button type="submit" class="btn btn-primary btn-sm" value="submit">
+              <i class="fa fa-check-circle">&nbsp;&nbsp;Update</i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

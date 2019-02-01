@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% block body %}
+  <div class="card">
+    <div class="card-header">
+      <legend>Role details</legend>
+    </div>
+    <div class="card-body">
+      <dl class="col-md-4 sph-data">
+        <dt>Name</dt>
+        <dd>{{ roles.name}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <dt>Description</dt>
+        <dd>{{ roles.description}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <a href="/roles" class="btn btn-danger btn-sm">
+          <i class="fa fa-angle-double-left">&nbsp;&nbsp;Back</i>
+        </a>
+      </dl>
+    </div>
+  </div>
+{% endblock %}

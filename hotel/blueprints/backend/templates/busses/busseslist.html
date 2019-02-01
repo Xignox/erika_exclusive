@@ -1,0 +1,20 @@
+<tbody>
+	<tr class="table-row">
+		<td>{{ busses.plate_num }}</td>
+		<td>{{ busses.model }}</td>
+		<td>{{ busses.types }}</td>
+		<td>{{ busses.seats }}</td>
+		<td>{{ busses.registered_at }}</td>
+        <td>{{ busses.image }}</td>
+		<td>
+			<div class="dropdown show">
+				<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</a>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+					<a class="dropdown-item" href="/busses/{{busses.id}}">Show</a>
+				    <a class="dropdown-item" href="/busses/{{busses.id}}/edit">Edit</a>
+				    <a class="dropdown-item" href="/busses/{{busses.id}}/delete">Delete</a>
+				</div>
+			</div>
+		</td>
+	</tr>
+</tbody>

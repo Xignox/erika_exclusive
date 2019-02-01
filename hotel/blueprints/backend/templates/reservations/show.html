@@ -1,0 +1,50 @@
+
+{% extends 'layout.html' %}
+{% block body %}
+  <div class="card">
+    <div class="card-header">
+      <legend>Reservation details</legend>
+    </div>
+    <div class="card-body">
+      <dl class="col-md-4 sph-data">
+        <dt>Passenger Name</dt>
+        <dd>{{reservations.user.firstname}} {{reservations.user.lastname}}</dd>
+      </dl>
+
+       <dl class="col-md-4 sph-data">
+        <dt>Route</dt>
+        <dd>{{reservations.bus.arrival}} {{reservations.bus.arrival}}</dd>
+      </dl>
+      
+      <dl class="col-md-4 sph-data">
+        <dt>Schedule</dt>
+        <dd>{{reservations.schedule.departured_at }}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <dt>Date/Time</dt>
+        <dd>{{ reservations.datetime}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <dt>Quantity</dt>
+        <dd>{{ reservations.quantity}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <dt>Amount</dt>
+        <dd>{{ reservations.amount}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <dt>Discount</dt>
+        <dd>{{ reservations.discount}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <dt>Status</dt>
+        <dd>{{ reservations.status}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <a href="/reservations" class="btn btn-danger btn-sm">
+          <i class="fa fa-angle-double-left">&nbsp;&nbsp;Back</i>
+        </a>
+      </dl>
+    </div>
+  </div>
+{% endblock %}

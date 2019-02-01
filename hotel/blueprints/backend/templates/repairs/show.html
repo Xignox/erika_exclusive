@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% block body %}
+  <div class="card">
+    <div class="card-header">
+      <legend>User details</legend>
+    </div>
+    <div class="card-body">
+      <dl class="col-md-4 sph-data">
+        <dt>Mechanic Name</dt>
+        <dd>{{ repair.user.firstname}} {{ repair.user.lastname}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <dt>Bus ID </dt>
+        <dd>{{ repair.bus.plate_number }}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <dt>Longitude</dt>
+        <dd>{{ repair.longitude}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <dt>Latitude</dt>
+        <dd>{{ repair.latitude}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <dt>Description</dt>
+        <dd>{{ repair.description}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <dt>Type</dt>
+        <dd>{{ repair.type}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <dt>Status</dt>
+        <dd>{{ repair.status}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <a href="/repairs" class="btn btn-danger btn-sm">
+          <i class="fa fa-angle-double-left">&nbsp;&nbsp;Back</i>
+        </a>
+      </dl>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+{% block body %}
+  <div class="card">
+    <div class="card-header">
+      <legend>Bus Details</legend>
+    </div>
+    <div class="card-body">
+      <dl class="col-md-4 sph-data">
+        <dt>Bus Number</dt>
+        <dd>{{ schedules.bus.plate_number}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <dt>Driver Name</dt>
+        <dd>{{schedules.user.firstname}} {{schedules.user.firstname}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <dt>Conductor Name</dt>
+        <dd>{{schedules.user.firstname}} {{schedules.user.lastname}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <dt>Departured</dt>
+        <dd>{{ schedules.departured_at}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <dt>Arrived</dt>
+        <dd>{{ schedules.arrived_at}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <dt>Origin</dt>
+        <dd>{{ schedules.origin}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <dt>Destination</dt>
+        <dd>{{ schedules.destination}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <dt>Amount</dt>
+        <dd>{{ schedules.amount}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <dt>Duration</dt>
+        <dd>{{ schedules.duration}}</dd>
+      </dl>      <dl class="col-md-4 sph-data">
+        <dt>Status</dt>
+        <dd>{{ schedules.status}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <a href="/schedules" class="btn btn-danger btn-sm">
+          <i class="fa fa-angle-double-left">&nbsp;&nbsp;Back</i>
+        </a>
+      </dl>
+    </div>
+  </div>
+{% endblock %}

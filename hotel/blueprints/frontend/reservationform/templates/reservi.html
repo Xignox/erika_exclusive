@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Dynamic Pills</h2>
+  <p>To make the tabs toggleable, add the data-toggle="pill" attribute to each link. Then add a .tab-pane class with a unique ID for every tab and wrap them inside a div element with class .tab-content.</p>
+  <ul class="nav nav-pills">
+    <li class="active"><a data-toggle="pill" href="#home">Reservation form</a></li>
+    <li><a data-toggle="pill" href="#menu1">Schedule</a></li>
+    <li><a data-toggle="pill" href="#menu2">Billing</a></li>
+    <li><a data-toggle="pill" href="#menu3">Confirmation</a></li>
+  </ul>
+  
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h3>HOME</h3>
+       <div class="container"><br>
+      <center>
+        <h2>Bus Reservation </h2>
+      </center>
+    </div>
+    
+    <div class="container">
+      <center>      
+    <div class="card bg-light mb-3">
+    <div class="card-body">
+    <div class=container"><br>
+      <div class="row align-items-center justify-content-center">
+        <div class="col-md-5">
+          <form  action="/schedule" method="post" role="form">
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                <label for="origin">To</label>
+                <select type="text" name="" class="form-control">
+                  <option selected>Select Origin</option>
+                  {% for terminals in terminals %}
+                    <option value="{{terminals.id}}">{{terminals.name}}</option>
+                  {% endfor%}
+                </select>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="destination">From</label>
+                <select type="text" name="destination" class="form-control ">
+                  <option selected>Select Destination</option>
+                  {% for terminals in terminals %}
+                    <option value="{{terminals.id}}">{{terminals.name}}</option>
+                  {% endfor%}
+                </select>
+              </div>
+                <div class="form-group col-md-6">
+                  <label for="departured_at">Departure</label>
+                  <input class="form-control" type="date" name="departured_at" id="departured_at">
+                </div>
+              </div>
+              <div class="quantity">
+                <label for="quantity">Adult</label>
+              <button class="plus-btn" type="button" name="button">
+                <img src="" alt="" />
+              </button>
+              <input type="text" name="name"  value="1">
+              <button class="minus-btn" type="button" name="button">
+                <img src="" alt="" />
+              </button>
+            </div>
+            <div class="quantity">
+                <label for="quantity">Child(2-11 years)</label>
+              <button class="plus-btn" type="button" name="button">
+                <img src="" alt="" />
+              </button>
+              <input type="text" name="name" value="1">
+              <button class="minus-btn" type="button" name="button">
+                <img src="" alt="" />
+              </button>
+            </div>
+            <div class="quantity">
+                <label for="quantity">Senior</label>
+              <button class="plus-btn" type="button" name="button">
+                <img src="" alt="" />
+              </button>
+              <input type="text" name="name" value="1">
+              <button class="minus-btn" type="button" name="button">
+                <img src="" alt="" />
+              </button>
+            </div>
+            <br>
+              <button type="submit" class="btn btn-primary"> Find Schedule</button>
+          </form>
+          <br>
+        </div>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
+</center>
+</div>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+    
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <h3>Menu 1</h3>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <h3>Menu 2</h3>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+    </div>
+    <div id="menu3" class="tab-pane fade">
+      <h3>Menu 3</h3>
+      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

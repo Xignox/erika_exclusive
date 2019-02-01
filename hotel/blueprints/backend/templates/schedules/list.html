@@ -1,0 +1,23 @@
+<tbody>
+	<tr class="table-row">
+		<td>{{schedules.bus.plate_number}}</td>
+		<td>{{schedules.user.firstname}} {{schedules.user.lastname}}</td>
+    <td>{{schedules.user.firstname}} {{schedules.user.lastname}}</td>
+		<td>{{schedules.origin}}</td>
+    <td>{{schedules.destination}}</td>
+    <td>{{schedules.status}}</td>
+    <td>
+      <div class="btn is-group">
+          <a href="schedules/{{schedules.id}}"><button type="submit" class="btn btn-primary btn-sm">
+              <i class="fa fa-eye">&nbsp;&nbsp;View</i>
+            </button></a>
+        <a href="schedules/{{schedules.id}}/edit"><button type="submit" class="btn btn-success btn-sm">
+              <i class="fa fa-edit">&nbsp;&nbsp;Edit</i>
+            </button></a>
+        <a href="schedules/{{schedules.id}}/delete"><button type="submit" class="btn btn-danger btn-sm">
+              <i class="fa fa-trash">&nbsp;&nbsp;Delete</i>
+            </button></a>
+          </div>
+    </td>
+  </tr>
+</tbody>

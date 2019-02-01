@@ -1,0 +1,22 @@
+<tbody>
+	<tr class="table-row">
+		<td>{{repair.user.firstname}} {{repair.user.lastname}}</td>
+		<td>{{repair.bus.plate_number}}</td>
+    <td>{{repair.description}}</td>
+		<td>{{repair.type}}</td>
+    <td>{{repair.status}}</td>
+    <td>
+      <div class="btn is-group">
+          <a href="repairs/{{repair.id}}"><button type="submit" class="btn btn-primary btn-sm">
+              <i class="fa fa-eye">&nbsp;&nbsp;View</i>
+            </button></a>
+            <a href="repa/{{repair.id}}/edit"><button type="submit" class="btn btn-success btn-sm">
+              <i class="fa fa-edit">&nbsp;&nbsp;Edit</i>
+            </button></a>
+            <a href="repairs/{{repair.id}}/delete"><button type="submit" class="btn btn-danger btn-sm">
+              <i class="fa fa-trash">&nbsp;&nbsp;Delete</i>
+            </button></a>
+          </div>
+    </td>
+  </tr>
+</tbody>
